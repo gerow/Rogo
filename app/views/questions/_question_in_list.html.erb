@@ -3,6 +3,6 @@
     <%= @question.user.display_name %>
   </div>
   <div class="content">
-    <%= @question.content %>
+    <%= simple_format(@question.content) %>
   </div>
 </div>
