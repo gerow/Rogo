@@ -1,6 +1,6 @@
 <div class="question_in_list">
   <div class="name">
-    <%= @question.user.display_name %>
+    <%= link_to(@question.user.display_name, user_path(@question.user)) %>
   </div>
   <div class="content">
     <%= simple_format h(@question.content) %>
