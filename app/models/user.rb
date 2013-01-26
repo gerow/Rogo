@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :rogomes
+  has_many :user_upvotes
 
   def self.authenticate(email, password)
     user = find_by_email(email)
