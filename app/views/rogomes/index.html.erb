@@ -1,0 +1,27 @@
+<h1>Listing rogomes</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rogomes.each do |rogome| %>
+  <tr>
+    <td><%= rogome.user %></td>
+    <td><%= rogome.title %></td>
+    <td><%= rogome.description %></td>
+    <td><%= link_to 'Show', rogome %></td>
+    <td><%= link_to 'Edit', edit_rogome_path(rogome) %></td>
+    <td><%= link_to 'Destroy', rogome, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rogome', new_rogome_path %>

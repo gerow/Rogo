@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @rogome.user %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @rogome.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @rogome.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_rogome_path(@rogome) %> |
+<%= link_to 'Back', rogomes_path %>
