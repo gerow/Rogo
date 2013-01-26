@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if not session[:user_id]
+      return redirect_to root_url
+    end
     respond_to do |format|
       format.html #show.html.erb
       #format.json { render json: @user}

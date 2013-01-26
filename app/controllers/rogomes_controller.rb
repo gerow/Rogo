@@ -15,6 +15,8 @@ class RogomesController < ApplicationController
   def show
     @rogome = Rogome.find(params[:id])
 
+    @question = Question.new
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @rogome }
@@ -25,6 +27,10 @@ class RogomesController < ApplicationController
   # GET /rogomes/new.json
   def new
     @rogome = Rogome.new
+
+    if not session[:user_id]
+      return redirect_to "/log_in"
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +47,8 @@ class RogomesController < ApplicationController
   # POST /rogomes.json
   def create
     @rogome = Rogome.new(params[:rogome])
+
+    @rogome.user = User.find(session[:user_id])
 
     respond_to do |format|
       if @rogome.save

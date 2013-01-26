@@ -12,17 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <div class="field">
-    <%= f.label :rogome %><br />
-    <%= f.text_field :rogome %>
-  </div>
+  <%= f.hidden_field :rogome_id, :value => @rogome.id %>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -2,7 +2,7 @@
 
 <p>
   <b>User:</b>
-  <%= @rogome.user %>
+  <%= @rogome.user.display_name %>
 </p>
 
 <p>
@@ -15,6 +15,10 @@
   <%= @rogome.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_rogome_path(@rogome) %> |
-<%= link_to 'Back', rogomes_path %>
+<% if session[:user_id] %>
+  <%= render "questions/form" %>
+<% else %>
+  <p>
+  Please <%= link_to "log in", "/log_in" %> to post a question.
+  </p>
+<% end %>
