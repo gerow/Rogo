@@ -1,4 +1,7 @@
 Rogo::Application.routes.draw do
+  resources :questions
+
+
   resources :rogomes
 
 
