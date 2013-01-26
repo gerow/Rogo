@@ -15,8 +15,6 @@ class RogomesController < ApplicationController
   def show
     @rogome = Rogome.find(params[:id])
 
-    @question = Question.new
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @rogome }

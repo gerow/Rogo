@@ -40,17 +40,15 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(params[:question])
+    @rogome = Rogome.find(params[:rogome_id])
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created, location: @question }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if session[:user_id]
+      @question = @rogome.questions.create(params[:question])
+      @question.user =  User.find(session[:user_id])
+      @question.save
     end
+
+    redirect_to rogome_path(@rogome)
   end
 
   # PUT /questions/1

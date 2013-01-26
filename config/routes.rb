@@ -2,7 +2,9 @@ Rogo::Application.routes.draw do
   resources :questions
 
 
-  resources :rogomes
+  resources :rogomes do
+    resources :questions
+  end
 
 
   get "log_out" => "sessions#destroy", :as => "log_out"
