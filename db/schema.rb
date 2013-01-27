@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126222907) do
+ActiveRecord::Schema.define(:version => 20130127052637) do
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130126222907) do
     t.integer  "rogome_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "answer"
   end
 
   add_index "questions", ["rogome_id"], :name => "index_questions_on_rogome_id"

@@ -24,13 +24,13 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   # GET /questions/new.json
   def new
+    if not params[:rogome_id]
+      return render :file => 'public/404.html', :status => 404
+    end
     @question = Question.new
 
     respond_to do |format|
       format.html # new.html.erb
-      :close
-
-:close
     end
   end
 
