@@ -28,7 +28,9 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @question }
+      :close
+
+:close
     end
   end
 
@@ -77,5 +79,31 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @question = Question.find(params[:id])
+
+    if not session[:user_id]
+      respond_to do |format|
+        format.html { redirect_to rogome_path(@question.rogome) }
+        format.json { head :no_content }
+      end
+      return
+    end
+
+    @user_upvote = UserUpvote.new
+    @user_upvote.question = @question
+    @user_upvote.user = User.find(session[:user_id])
+
+    success = @user_upvote.save
+
+    respond_to do |format|
+      format.html { redirect_to rogome_path(@question.rogome) }
+      format.json { render :json => { :success => success } }
+    end
+  end
+
+  def unupvote
   end
 end

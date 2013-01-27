@@ -1,5 +1,10 @@
 Rogo::Application.routes.draw do
-  resources :questions
+  resources :questions do
+    member do
+      get :upvote
+      get :unupvote
+    end
+  end
 
 
   resources :rogomes do
