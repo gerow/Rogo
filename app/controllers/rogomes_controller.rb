@@ -15,6 +15,8 @@ class RogomesController < ApplicationController
   def show
     @rogome = Rogome.find(params[:id])
 
+    @is_rogome_creator = @rogome.user == User.find(session[:user_id])
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @rogome }

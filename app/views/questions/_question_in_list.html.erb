@@ -5,4 +5,13 @@
   <div class="content">
     <%= simple_format h(@question.content) %>
   </div>
+  <% if @question.answer %>
+    <div class="answer">
+      <%= @question.answer %>
+    </div>
+  <% elsif @is_rogome_creator %>
+    <div class="creator_answer">
+      <a>Answer</a>
+    </div>
+  <% end %>
 </div>

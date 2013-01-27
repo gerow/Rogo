@@ -106,4 +106,7 @@ class QuestionsController < ApplicationController
 
   def unupvote
   end
+
+  def answer
+  end
 end
