@@ -25,10 +25,10 @@
 <% end %>
 
 <h2>Current questions</h2>
-<div id="comments">
+<ul id="comments">
   <% @rogome.questions.each do |question| %>
     <% @question = question %>
     <% next if @question.user.blank? %>
     <%= render "questions/question_in_list" %>
   <% end %>
-</div>
+</ul>
