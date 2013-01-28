@@ -10,8 +10,8 @@
       <%= @question.answer %>
     </div>
   <% elsif @is_rogome_creator %>
-    <div class="creator_answer">
-      <a>Answer</a>
+    <div id="<%= @question.id %>" class="creator_answer">
+      <a href="#">Answer</a>
     </div>
   <% end %>
 </div>
